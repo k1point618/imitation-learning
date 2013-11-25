@@ -1,3 +1,11 @@
+% Author Pieter Abbeel pabbeel@cs.berkeley.edu www.cs.berkeley.edu/~pabbeel
+% 2009/11/07
+% Editted by: Keren Gu kgu@mit.edu
+
+% Make sure that the actions are loaded into chosen_map_log
+% This script will simply demonstrate how the expert log look like.
+% Used to compare with resulting policy. 
+
 mex tetris_place_block.c
 mex tetris_standard_22_features.c
 mex tetris_2_features.c
@@ -12,11 +20,6 @@ game_over = 0;
 
 for i=1:length(chosen_map_log)
     hmap = tetris_draw_now(hmap, chosen_map_log{i}, board_data); 
-    
-%     translation_action = ceil(rand*10); %choose from 1 to 10
-%     rotation_action = ceil(rand*4)-1; % choose from 0 to 3
-%     [map,game_over] = tetris_place_block(map, block_idx, translation_action, rotation_action, board_data);
-%     hmap = tetris_draw_now(hmap, map, board_data); %draws the current map; will slow things down, obviously
     
     %note: occasionally the "tetris_draw_now" fails and complains about an
     %invalide handle; not sure what the deal is; if you find out, let me

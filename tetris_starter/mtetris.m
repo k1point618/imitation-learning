@@ -43,7 +43,6 @@ RowScore = [100,250,400,600] - 5;	% points for filling rows
 % fixed: [PA]
 Shapes = reshape([-1 0 0 0 0 1 1 0 -1 0 0 0 1 0 2 0 -1 1 0 1 0 0 1 0 ...
     -1 0 0 0 0 1 1 1 0 0 0 1 1 0 1 1 -1 0 0 0 1 0 1 1 -1 1 -1 0 0 0 1 0],2,4,7);
-ONE_SHAPE = 5;
 %[PA] these colors are a poor choice imho
 % let's replace them with std tetris colors; and let's have the color
 % depend on the shape rather than be random
@@ -113,7 +112,7 @@ if nargin ~= 1 | cmd == 'C'
 	SCORE = 0;
 	   
    % place first shape
-   SHAPEIND = ONE_SHAPE;%ceil(rand(1)*size(Shapes,3));
+   SHAPEIND = ceil(rand(1)*size(Shapes,3));
 	GEO = Shapes(:,:,SHAPEIND);
 	POS = [ceil(BoxX/2);BOXY-2];
 	Color = ShapeColors(SHAPEIND,:);
@@ -148,7 +147,7 @@ while ~MODE		% main game loop
       MAP(BOXOFF*POS + BOXOFF*GEO - BOXY) = 1;
       HMAP(BOXOFF*POS + BOXOFF*GEO - BOXY) = HCUR;
       % spawn a new shape
-      SHAPEIND = ONE_SHAPE;%ceil(rand(1)*size(Shapes,3));
+      SHAPEIND = ceil(rand(1)*size(Shapes,3));
       GEO = Shapes(:,:,SHAPEIND);
       POS = [ceil(BoxX/2);BOXY-2];
       Color = ShapeColors(SHAPEIND,:);

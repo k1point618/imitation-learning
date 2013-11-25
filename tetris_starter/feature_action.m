@@ -1,7 +1,12 @@
-function [ features ] = feature_action( state, action)
-%UNTITLED4 Summary of this function goes here
-%   Detailed explanation goes here
+% Author: Keren Gu kgu@mit.edu
+% 2013 Fall UROP
+% Interactive Robotics Group, CSAIL
 
+function [ features ] = feature_action(state, action)
+
+% Used for q_sarsa: The version of SARSA that expands the feature of a
+% state into a combination of feature of state and action. 
+% Since SARSA is not used, this function is also not used. 
 num_feat = 22;
 num_action = 40;
 

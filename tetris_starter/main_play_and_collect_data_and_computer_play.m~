@@ -105,10 +105,10 @@ min_t = intmax;
 Ts = ones(1,MAX_ITERATIONS);
 past_feat_exp = zeros(22, 1);
 past_thetas = zeros(22, 1);
+% Survaying frequency. -- Should adjust depending on dataset. 
+% When the number of states to be survayved is too small, 
+% ALP may throw exception 
 states = chosen_map_log(1:10:length(chosen_map_log)); 
-    % Survaying frequency. -- Should adjust depending on dataset. 
-    % When the number of states to be survayved is too small, 
-    % ALP may throw exception for some "matrix not positive definite" reason. 
 
 % 1. Compute Expert Feature Exp using map_log_by_demo
 exp_feat = expert_feature(FE_GAMMA, map_log_by_demo);

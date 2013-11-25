@@ -1,4 +1,8 @@
-function [ feat_exp ] = feature_expectation( gamma, state_0, board_data, theta)
+% Author: Keren Gu kgu@mit.edu
+% 2013 Fall UROP
+% Interactive Robotics Group, CSAIL
+function [ feat_exp ] = feature_expectation( gamma, state_0, board_data, past_thetas, mixture)
+
 % feature_expectation: Computes the mu(pi) function
 % Given a policy defined by @theta, we find the expected value of
 % sum of discounted feature in each game.
@@ -15,7 +19,7 @@ for i=1:num_trials
     
     while (not(game_over))
         block_idx = ceil(rand*7);
-        action = policy(cur_map, block_idx, board_data, theta);
+        action = policy(cur_map, block_idx, board_data, past_thetas, mixture);
         [new_map, game_over] = tetris_place_block(cur_map, block_idx, ...
             floor(action/4) + 1, mod(action, 4), board_data);
         feat_exp_i = feat_exp_i + gamma^t * tetris_standard_22_features(new_map);

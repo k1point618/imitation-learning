@@ -1,6 +1,13 @@
+% Author: Keren Gu kgu@mit.edu
+% 2013 Fall UROP
+% Interactive Robotics Group, CSAIL
 function [ theta ] = q_sarsa( w, start_map, board_data, old_theta )
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+
+% Attempt to implement SARSA with expanded feature vectors. 
+% We turn feature of a state, phi(s), into a combination of state and
+% action where phi(s, a) is a vector of size (22*40)x1, and the vector is
+% all zeros except from 22*a to 22*(a+1). 
+% Similarly to SARSA, this method is NOT used in IRL
 
 num_episodes = 1;
 max_steps = 5;

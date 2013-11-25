@@ -1,4 +1,8 @@
+% Author: Keren Gu kgu@mit.edu
+% 2013 Fall UROP
+% Interactive Robotics Group, CSAIL
 function [ expert_ft ] = expert_feature( gamma, map_log_by_demo )
+
 % Compute the feature expectation of the expert by taking as input, 
 % $m$ demonstrations of the game, and a discount factor $\gamma$, and compute
 % $$\hat{\mu}_E = \frac 1 m \sum_{i=1}^m \sum_{t=0} \gamma^t \phi(s_t^{(i)})$$

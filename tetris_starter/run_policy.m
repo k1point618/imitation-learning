@@ -1,4 +1,9 @@
-function [ ] = run_policy(best_theta)
+% Author Pieter Abbeel pabbeel@cs.berkeley.edu www.cs.berkeley.edu/~pabbeel
+% 2009/11/07
+% Editted by: Keren Gu kgu@mit.edu
+
+function [ ] = run_policy(past_thetas, lambda)
+% Demonstrates a policy with a given theta. 
 
 % Initializing board data. 
 board_data = init_board_data();
@@ -9,7 +14,7 @@ game_over = 0;
 max_i=1000;%max number of blocks we will let the computer play for
 for i=1:max_i
     block_idx = ceil(rand*7); %Pick the next random block.
-    action = policy(map, block_idx, board_data, best_theta);
+    action = policy(map, block_idx, board_data, past_thetas, lambda);
     [map, game_over] = tetris_place_block(map, block_idx, ...
         floor(action/4) + 1, mod(action, 4), board_data);
     hmap = tetris_draw_now(hmap, map, board_data); 
