@@ -1,2 +1,2 @@
-soviet-1984
+Inverse Reinforcement Learning implementation in Matlab
 ===========
